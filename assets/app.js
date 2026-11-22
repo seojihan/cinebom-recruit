@@ -17,6 +17,33 @@
     el.setAttribute("href", "mailto:" + (C.contactEmail || ""));
   });
 
+  // ── 1차 심사 기준일 (config.js 의 firstRound). 비었거나 지났으면 원래 문구 그대로 ──
+  (function () {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(C.firstRound || "");
+    if (!m) return;
+    var end = new Date(+m[1], +m[2] - 1, +m[3], 23, 59, 59);
+    if (isNaN(end.getTime()) || Date.now() > end.getTime()) return;
+    var label = (+m[2]) + "월 " + (+m[3]) + "일(" + "일월화수목금토".charAt(end.getDay()) + ")";
+    document.querySelectorAll("[data-round]").forEach(function (el) {
+      el.textContent = el.getAttribute("data-round").replace(/\{date\}/g, label);
+    });
+  })();
+
+  // ── 어디서 들어왔는지: 홍보 링크 끝의 ?from=이름 을 기억했다가 지원서에 함께 보낸다 ──
+  var REF_KEY = "cinepick-from";
+  try {
+    var q = new URLSearchParams(location.search);
+    var tag = (q.get("from") || q.get("utm_source") || "").replace(/[^0-9A-Za-z가-힣._-]/g, "").slice(0, 40);
+    if (tag) localStorage.setItem(REF_KEY, JSON.stringify({ tag: tag, at: Date.now() }));
+  } catch (e) {}
+  function refTag() {
+    try {
+      var r = JSON.parse(localStorage.getItem(REF_KEY) || "null");
+      if (r && r.tag && Date.now() - r.at < 60 * 24 * 3600 * 1000) return String(r.tag); // 60일 동안
+    } catch (e) {}
+    return "";
+  }
+
   // ── 캐러셀 ──
   var carousel = document.querySelector("[data-carousel]");
   if (carousel) {
@@ -137,6 +164,7 @@
     syncShow();
     form.querySelectorAll("[data-limit]").forEach(function (el) { if (el._paint) el._paint(); });
   })();
+  if (form.elements.ref_link && refTag()) form.elements.ref_link.value = refTag();
 
   var saveTimer;
   form.addEventListener("input", function (e) {
@@ -247,6 +275,7 @@
     var seen = {};
     fields.forEach(function (el) {
       if (seen[el.name] || !visible(el)) return;
+      if (el.type === "hidden" && !el.value) return; // 빈 숨은 칸은 지원서에 넣지 않음
       seen[el.name] = true;
       var label = el.getAttribute("data-label") || el.name;
       var v;

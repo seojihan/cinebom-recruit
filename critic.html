@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>평론가 지원서 · 씨네픽</title>
   <meta name="description" content="씨네픽 1기 평론가 지원서">
+  <link rel="canonical" href="https://seojihan.github.io/cinepick-recruit/critic.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="씨네픽">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:url" content="https://seojihan.github.io/cinepick-recruit/critic.html">
+  <meta property="og:title" content="씨네픽 1기 평론가 지원서">
+  <meta property="og:description" content="영화 《원스》와 시리즈 《도깨비》의 별점 · 한 줄 평 · 평론으로 지원하세요. 경력이나 자격은 묻지 않아요.">
+  <meta property="og:image" content="https://seojihan.github.io/cinepick-recruit/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="씨네픽 1기 감독 · 평론가 모집 안내와 씨네픽 서비스 화면">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
@@ -28,7 +40,7 @@
       <p class="eyebrow"><span data-c="round">1기</span> 평론가 지원서</p>
       <h1>두 편의 작품을 보고,<br>별점의 이유를 글로 들려주세요</h1>
       <p class="lead">영화 《원스》와 시리즈 《도깨비》를 감상한 뒤 각각 별점과 한 줄 평, 평론을 써 주세요. 경력이나 자격은 묻지 않습니다.</p>
-      <p class="notice"><b>마감일 없이 받습니다. 결과 안내까지는 꽤 오래 걸릴 수 있어요.</b><br>쓰는 내용은 이 브라우저에 자동으로 임시 저장됩니다. 창을 닫았다가 다시 열어도 이어 쓸 수 있어요.</p>
+      <p class="notice"><b data-round="1차 심사는 {date}까지 들어온 지원서부터 시작해요. 그 뒤에도 계속 받습니다.">마감일 없이 받습니다. 결과 안내까지는 꽤 오래 걸릴 수 있어요.</b><br>쓰는 내용은 이 브라우저에 자동으로 임시 저장됩니다. 창을 닫았다가 다시 열어도 이어 쓸 수 있어요.</p>
     </div>
 
     <form class="apply" data-kind="critic" novalidate>
@@ -72,6 +84,25 @@
             <p class="err"></p>
           </div>
         </div>
+        <div class="field">
+          <label for="heard_from">씨네픽 모집을 어디서 알게 되셨나요? <span class="opt">선택</span></label>
+          <select id="heard_from" name="heard_from" data-label="알게 된 경로">
+            <option value="">고르지 않음</option>
+            <option>링크드인</option>
+            <option>인스타그램 · 스레드 · X</option>
+            <option>유튜브</option>
+            <option>디스코드 · 오픈채팅 · 온라인 커뮤니티</option>
+            <option>영화 구인 게시판 (씨네21 · 필름메이커스 등)</option>
+            <option>대외활동 · 공모전 사이트</option>
+            <option>AI 영화 단체 · 영화제 · 상영회</option>
+            <option>씨네픽에서 직접 연락을 받음</option>
+            <option>지인 소개</option>
+            <option>검색</option>
+            <option>기타</option>
+          </select>
+          <p class="err"></p>
+        </div>
+        <input type="hidden" name="ref_link" data-label="들어온 링크">
       </fieldset>
 
       <fieldset>
@@ -190,7 +221,7 @@
         </div>
         <div class="terms">
           <p><b>개인정보 수집 · 이용 안내</b></p>
-          <p>수집 항목: 이름, 필명, 팀 이름, 메일 주소, 연락처(선택), 지원서 답변, 첨부 파일과 링크 · 목적: 평론가 선발 심사, 결과 안내, 합격자 활동 코드 발급 · 보관: 심사가 끝나고 6개월 뒤 파기(합격자는 활동 기간 동안 보관)</p>
+          <p>수집 항목: 이름, 필명, 팀 이름, 메일 주소, 연락처(선택), 알게 된 경로(선택), 지원서 답변, 첨부 파일과 링크 · 목적: 평론가 선발 심사, 결과 안내, 합격자 활동 코드 발급 · 보관: 심사가 끝나고 6개월 뒤 파기(합격자는 활동 기간 동안 보관)</p>
           <p>동의하지 않을 수 있지만, 그러면 심사를 할 수 없어요. 자세한 내용은 <a href="privacy.html" target="_blank">개인정보 처리방침</a>에 있어요.</p>
         </div>
         <div class="field">
