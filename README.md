@@ -28,7 +28,7 @@ Settings → Pages → Branch를 `main` / `(root)`로 정해 두었습니다. �
 
 | 올리는 곳 | 링크 |
 |---|---|
-| 링크드인 | `https://seojihan.github.io/cinepick-recruit/?from=linkedin` |
+| 링크드인 | `https://seojihan.github.io/cinebom-recruit/?from=linkedin` |
 | 인스타그램 | `…/?from=instagram` |
 | 디스코드 · 오픈채팅 | `…/?from=discord`, `…/?from=openchat` |
 | 대외활동 사이트 | `…/?from=linkareer`, `…/?from=thinkgood` |
