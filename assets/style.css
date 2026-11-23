@@ -34,7 +34,8 @@ img { max-width: 100%; display: block; }
 /* 머리 */
 .top { border-bottom: 1px solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 10; }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-.brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; }
+.brand { font-family: var(--serif); font-weight: 700; font-size: 18px; text-decoration: none; display: inline-flex; align-items: center; gap: 9px; }
+.brand-mark { width: 28px; height: 28px; flex: none; }
 .brand small { font-family: var(--sans); font-weight: 500; font-size: 13px; color: var(--ink-3); margin-left: 8px; }
 .top nav a { font-size: 14px; color: var(--ink-2); text-decoration: none; margin-left: 18px; }
 .top nav a:hover, .top nav a[aria-current] { color: var(--ink); }
