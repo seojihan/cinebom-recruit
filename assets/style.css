@@ -48,7 +48,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; letter-spacing: -0.03e
 .hero .meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 36px; font-size: 14px; color: var(--ink-2); }
 .hero .meta b { color: var(--ink); font-weight: 600; margin-right: 6px; }
 
-/* 씨네픽 실제 활동 화면 */
+/* 씨네봄 실제 활동 화면 */
 .preview { background: #f4f1eb; }
 .carousel { max-width: 1040px; margin: 0 auto; }
 .carousel-window { min-height: 0; }

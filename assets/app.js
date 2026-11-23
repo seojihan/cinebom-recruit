@@ -30,7 +30,7 @@
   })();
 
   // ── 어디서 들어왔는지: 홍보 링크 끝의 ?from=이름 을 기억했다가 지원서에 함께 보낸다 ──
-  var REF_KEY = "cinepick-from";
+  var REF_KEY = "cinebom-from";
   try {
     var q = new URLSearchParams(location.search);
     var tag = (q.get("from") || q.get("utm_source") || "").replace(/[^0-9A-Za-z가-힣._-]/g, "").slice(0, 40);
@@ -38,7 +38,7 @@
   } catch (e) {}
   function refTag() {
     try {
-      var r = JSON.parse(localStorage.getItem(REF_KEY) || "null");
+      var r = JSON.parse(localStorage.getItem(REF_KEY) || localStorage.getItem("cinepick-from") || "null"); // 예전 이름으로 남은 값도 읽는다
       if (r && r.tag && Date.now() - r.at < 60 * 24 * 3600 * 1000) return String(r.tag); // 60일 동안
     } catch (e) {}
     return "";
@@ -94,7 +94,7 @@
 
   var kind = form.getAttribute("data-kind"); // director | critic
   var KIND_KO = kind === "director" ? "감독" : "평론가";
-  var KEY = "cinepick-draft-" + kind;
+  var KEY = "cinebom-draft-" + kind;
   var saved = form.querySelector(".saved");
   var errBox = form.querySelector(".form-error");
   var btn = form.querySelector('button[type="submit"]');
@@ -151,7 +151,7 @@
   }
   (function restore() {
     var d = null;
-    try { d = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) {}
+    try { d = JSON.parse(localStorage.getItem(KEY) || localStorage.getItem("cinepick-draft-" + kind) || "null"); } catch (e) {} // 예전 이름으로 저장된 임시 저장본도 이어 쓴다
     if (d) {
       fields.forEach(function (el) {
         if (el.type === "file" || !(el.name in d)) return;
@@ -322,7 +322,7 @@
     var no = receiptNo();
     var rows = collect();
     var name = form.elements.name_real.value.trim();
-    var text = ["[씨네픽 " + (C.round || "") + " " + KIND_KO + " 지원서]", "접수번호: " + no, "접수 시각: " + new Date().toLocaleString("ko-KR"), ""]
+    var text = ["[씨네봄 " + (C.round || "") + " " + KIND_KO + " 지원서]", "접수번호: " + no, "접수 시각: " + new Date().toLocaleString("ko-KR"), ""]
       .concat(rows.map(function (r) { return "■ " + r[0] + "\n" + (r[1] || "-") + "\n"; }))
       .join("\n");
     var fieldsObj = {};
@@ -350,7 +350,7 @@
           body: JSON.stringify({
             kind: kind,
             no: no,
-            subject: "[씨네픽 " + (C.round || "") + " " + KIND_KO + " 지원] " + name + " · " + no,
+            subject: "[씨네봄 " + (C.round || "") + " " + KIND_KO + " 지원] " + name + " · " + no,
             email: form.elements.email.value.trim(),
             name: name,
             text: text,
@@ -367,8 +367,8 @@
         var res = null;
         try { res = JSON.parse(body); } catch (x) {}
         if (res && res.ok === false) { var er = new Error(res.error || "접수 실패"); er.server = true; throw er; }
-        try { localStorage.removeItem(KEY); } catch (x) {}
-        try { sessionStorage.setItem("cinepick-receipt", JSON.stringify({ no: no, kind: kind, name: name })); } catch (x) {}
+        try { localStorage.removeItem(KEY); localStorage.removeItem("cinepick-draft-" + kind); } catch (x) {}
+        try { sessionStorage.setItem("cinebom-receipt", JSON.stringify({ no: no, kind: kind, name: name })); } catch (x) {}
         location.href = "thanks.html?k=" + kind;
       })
       .catch(function (err) {
