@@ -406,3 +406,26 @@ input[type=file]::file-selector-button { margin-right: 14px; border: 0; backgrou
   .js .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
+
+/* 2026-11-25: 이렇게 돌아가요 · 서로 얻는 것 · 심사비 */
+.stage-lead { margin: 18px 0 0; max-width: 640px; color: rgba(255,255,255,.82); font-size: clamp(15px, 1.7vw, 19px); line-height: 1.7; }
+.steps em.hl { font-style: normal; color: #fff; font-weight: 800; }
+.winwin { display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .winwin { grid-template-columns: 1fr 1fr; } }
+.ww { padding: 34px 32px; border-radius: 22px; border: 1px solid var(--line); background: radial-gradient(120% 140% at 0% 0%, rgba(138, 107, 255, 0.2), transparent 55%), linear-gradient(135deg, #14141f, #0d0d15); }
+.ww.critic { background: radial-gradient(120% 140% at 0% 0%, rgba(255, 114, 176, 0.2), transparent 55%), linear-gradient(135deg, #14141f, #0d0d15); }
+.ww .tag { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.28em; color: var(--warm); margin-bottom: 10px; }
+.ww h3 { font-size: clamp(26px, 3.2vw, 36px); letter-spacing: -0.06em; margin: 0 0 18px; }
+.ww ul { margin: 0; padding: 0 0 0 1.1em; color: var(--muted); font-size: 16px; display: grid; gap: 10px; }
+.ww ul b { color: #fff; }
+.ww .note { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: rgba(255,255,255,.05); color: var(--muted); font-size: 14px; }
+.fee { margin-top: 26px; padding: 30px 32px; border-radius: 22px; border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+.fee h3 { font-size: 22px; margin: 0 0 16px; letter-spacing: -0.04em; }
+.fee h3 small { margin-left: 8px; font-size: 13px; font-weight: 700; color: var(--warm); letter-spacing: 0; }
+.fee table { width: 100%; border-collapse: collapse; font-size: 16px; }
+.fee th, .fee td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); }
+.fee th { color: var(--muted); font-size: 13.5px; font-weight: 700; }
+.fee td:nth-child(2) { color: #fff; font-weight: 800; }
+.fee p { margin: 16px 0 0; color: var(--muted); font-size: 14.5px; }
+.fee p b { color: #fff; }
+@media (max-width: 560px) { .fee { padding: 22px 18px; } .fee table { font-size: 14px; } .fee th, .fee td { padding: 10px 6px; } }
