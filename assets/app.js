@@ -327,6 +327,7 @@
       .join("\n");
     var fieldsObj = {};
     rows.forEach(function (r) { fieldsObj[r[0]] = r[1]; });
+    fieldsObj["기수"] = C.round || ""; // 시트에 '기수' 칸으로 남는다. 이 칸이 빈 예전 지원서는 1기
 
     btn.disabled = true;
     var old = btn.textContent;
