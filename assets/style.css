@@ -146,6 +146,7 @@ section.block h2 { font-size: clamp(30px, 4.6vw, 52px); letter-spacing: -0.06em;
 .site-screenshot { display: block; position: relative; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 6px; background: #000; box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7), 0 0 0 6px rgba(255, 255, 255, 0.03); }
 .site-screenshot::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, rgba(255, 255, 255, 0.1) 0%, transparent 28%, transparent 70%, rgba(255, 255, 255, 0.04)); }
 .site-screenshot img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.site-screenshot video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
 .slide-caption { display: flex; justify-content: center; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 22px 0 0; font-size: 15px; text-align: center; }
 .slide-caption b { color: #fff; font-weight: 800; }
 .slide-caption span { color: var(--muted); }
